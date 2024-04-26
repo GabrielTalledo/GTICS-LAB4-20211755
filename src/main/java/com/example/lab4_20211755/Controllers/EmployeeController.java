@@ -59,6 +59,7 @@ public class EmployeeController {
         if (optEmployee.isPresent()) {
             Employee employee = optEmployee.get();
             model.addAttribute("employee", employee);
+            model.addAttribute("employeeId",id);
             model.addAttribute("listaJobs",jobRepository.findAll());
             model.addAttribute("listaDepartments",departmentRepository.findAll());
             return "EmployeeEditFormulario";

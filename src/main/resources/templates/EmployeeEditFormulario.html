@@ -29,13 +29,14 @@
         </div>
     </div>
 </nav>
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
     <div style="text-align: left;"><h1>Editar empleado</h1></div>
-    <form method="post" th:action="@{/employee/editar}" class="mt-2">
-        <input th:field="*{employee.getId()}" name="id" type="hidden"/>
+    <form method="post" th:action="@{/employee/edit}" class="mt-2">
+        <input th:field="${employeeId}" name="id" type="hidden"/>
         <div class="mb-3">
             <label class="form-label">Nombre del empleado</label>
-            <td th:text="|${employee.getFirstName()} ${employee.getLastName()}|"></td>
+            <br>
+            <h6 th:text="|${employee.getFirstName()} ${employee.getLastName()}|"></h6>
         </div>
         <div class="mb-3">
             <label class="form-label">Puesto de Trabajo</label>
@@ -53,7 +54,7 @@
                         th:selected="${employee.getDepartment().getDepartmentId() == department.getDepartmentId()}"></option>
             </select>
         </div>
-        <a th:href="@{/product}" class="btn btn-danger">Cancelar</a>
+        <a th:href="@{/employee/listar}" class="btn btn-danger">Cancelar</a>
         <button type="submit" class="btn btn-primary">Editar</button>
     </form>
 </div>
